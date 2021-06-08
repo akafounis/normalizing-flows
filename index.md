@@ -1,37 +1,59 @@
-## Welcome to GitHub Pages
+## Normalizing Flows
 
-You can use the [editor on GitHub](https://github.com/akafounis/normalizing-flows/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<img src="normalizing-flows-main.png" width="400">
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+We used for this project 2 different datasets:
 
-### Markdown
+1. Shifted Guassian
+2. 2 Moons
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+and 2 transformations: 
 
-```markdown
-Syntax highlighted code block
+1. Affine Transformation
 
-# Header 1
-## Header 2
-### Header 3
+An affine tranformation scales each dimension independently and shifts the inputs by a constant offset. The tranformation is defined as follows:
 
-- Bulleted
-- List
+![alt text](affine_definition.png)
 
-1. Numbered
-2. List
+where parameters a from R^D b from R^D. 
+We apply 'exp' elementwise to 'a' to obtain positive scales for each dimension. 
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
+2. Radial Transformation
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+A radial flow is a simple but expressive transformation. It has been introduced in this paper(https://arxiv.org/pdf/1505.05770.pdf) by Rezende and Mohamed. The transformation is defined as:
+![alt text](radial_definiton.png)
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/akafounis/normalizing-flows/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+**Results:** 
 
-### Support or Contact
+Dataset: Shifted Guassian
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+![alt text](Affine_flow1.png)
+
+![alt text](affine_flow2.png)
+
+![alt text](affine_flow3.png)
+
+![alt text](affine_flow4.png)
+
+![alt text](affine_flow5.png)
+
+![alt text](affine_flow6.png)
+
+
+Dataset: 2 Moons
+
+![alt text](moons1.png)
+
+![alt text](moons2.png)
+
+![alt text](moons3.png)
+
+![alt text](moons4.png)
+
+![alt text](moons_loss.png)
+
+![alt text](moons_result.png)
+
+**PyTorch** was used for the development of the model.
